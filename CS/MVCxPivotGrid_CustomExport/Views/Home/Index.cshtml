@@ -1,0 +1,41 @@
+@*@{
+    ViewBag.Title = "Home Page";
+
+    @Html.Action("PivotGridPartial")
+}*@
+
+@model System.Data.DataTable
+
+<script type="text/javascript">
+    function ExportPivotGrid(actionName) {
+        var form = $('#PivotGridExportForm'),
+            defaultAction = form.attr('action'),
+            newAction = defaultAction.replace('ActionPlaceHolder', actionName);
+        form.attr('action', newAction);
+        form.submit();
+        form.attr('action', defaultAction);
+    }
+</script>
+@Html.DevExpress().Button(btn =>
+    {
+        btn.Name = "btnExportToXLS";
+        btn.Text = "Export to XLS";
+        btn.UseSubmitBehavior = false;
+        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLS'); }";
+
+    }).GetHtml()
+@Html.DevExpress().Button(btn =>
+    {
+        btn.Name = "btnExportToPDF";
+        btn.Text = "Export to PDF";
+        btn.UseSubmitBehavior = false;
+        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToPDF'); }";
+
+    }).GetHtml()
+
+@using (Html.BeginForm("ActionPlaceHolder", "Home", FormMethod.Post, new { id = "PivotGridExportForm" }))
+{
+
+
+    @Html.Partial("PivotGridPartial", Model)
+}
