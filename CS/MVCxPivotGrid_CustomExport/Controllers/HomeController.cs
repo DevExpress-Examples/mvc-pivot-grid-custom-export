@@ -1,4 +1,7 @@
+using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
+using System.Drawing;
+using System.IO;
 using System.Web.Mvc;
 
 namespace MVCxPivotGrid_CustomExport.Controllers
@@ -20,7 +23,7 @@ namespace MVCxPivotGrid_CustomExport.Controllers
 
         public ActionResult ExportToXLS()
         {
-            return PivotGridExtension.ExportToXls(PivotGridHelper.Settings, Models.NwindModel.GetData());
+            return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), PivotGridHelper.XlsxOptions);
         }
 
         public ActionResult ExportToPDF()

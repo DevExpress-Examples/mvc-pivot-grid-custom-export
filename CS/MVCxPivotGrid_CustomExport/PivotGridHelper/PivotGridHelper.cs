@@ -1,4 +1,5 @@
-﻿using DevExpress.Web.Mvc;
+﻿using DevExpress.Web.ASPxPivotGrid;
+using DevExpress.Web.Mvc;
 using DevExpress.XtraPivotGrid;
 using System.Drawing;
 
@@ -16,6 +17,18 @@ public class PivotGridHelper
             return _settings;
         }
     }
+    static PivotXlsxExportOptions _xlsOptions;
+    public static PivotXlsxExportOptions XlsxOptions
+    {
+        get
+        {
+            if (_xlsOptions == null)
+            {
+                _xlsOptions = GetXlsOptions();
+            }
+            return _xlsOptions;
+        }
+    }
     static PivotGridSettings GetSettings()
     {
         PivotGridSettings settings = new PivotGridSettings();
@@ -28,8 +41,9 @@ public class PivotGridHelper
         settings.SettingsExport.OptionsPrint.PrintRowAreaOnEveryPage = true;
         settings.SettingsExport.OptionsPrint.PageSettings.Landscape = true;
 
-        settings.SettingsExport.CustomExportCell = (sender, e) => {
-            
+        settings.SettingsExport.CustomExportCell = (sender, e) =>
+        {
+
             // Determine whether the cell is Grand Total.
             if ((e.ColumnField == null) || (e.RowField == null))
             {
@@ -38,8 +52,8 @@ public class PivotGridHelper
                      "=> {0}",
                      ((DevExpress.XtraPrinting.TextBrick)e.Brick).Text);
                 // Specify the colors used to paint the cell.
-                e.Appearance.BackColor = Color.Green;
-                e.Appearance.ForeColor = Color.White;
+                e.Appearance.BackColor = Color.Gray;
+                e.Appearance.ForeColor = Color.Orange;
                 return;
             }
 
@@ -50,17 +64,17 @@ public class PivotGridHelper
             // Determine whether the cell is an ordinary cell.
             if (e.RowField.AreaIndex == lastRowFieldIndex && e.ColumnField.AreaIndex == lastColumnFieldIndex)
             {
-                e.Appearance.ForeColor = Color.Blue;
+                e.Appearance.ForeColor = Color.Gray;
             }
             // The cell is a Total cell.
             else
             {
-                e.Appearance.BackColor = Color.Blue;
+                e.Appearance.BackColor = Color.DarkOliveGreen;
                 e.Appearance.ForeColor = Color.White;
             }
         };
-        
-            settings.Fields.Add(field =>
+
+        settings.Fields.Add(field =>
         {
             field.Area = PivotArea.RowArea;
             field.FieldName = "CategoryName";
@@ -97,5 +111,36 @@ public class PivotGridHelper
         });
 
         return settings;
+    }
+
+    static PivotXlsxExportOptions GetXlsOptions()
+    {
+        PivotXlsxExportOptions options = new PivotXlsxExportOptions();
+        options.CustomizeCell += Options_CustomizeCell;
+        return options;
+    }
+    static void Options_CustomizeCell(CustomizePivotCellEventArgs e)
+    {
+        if (e.CellItemInfo != null)
+        {
+            switch (e.CellItemInfo.ColumnValueType)
+            {
+                case PivotGridValueType.GrandTotal:
+                    // Specify the text to display in a cell.
+                    e.Value = string.Format("=> {0}", e.Value.ToString());
+                    // Specify the colors used to paint the cell.
+                    e.Formatting.BackColor = Color.Gray;
+                    e.Formatting.Font.Color = Color.Orange;
+                    break;
+                case PivotGridValueType.Total:
+                    e.Formatting.BackColor = Color.DarkOliveGreen;
+                    e.Formatting.Font.Color = Color.White;
+                    break;
+                case PivotGridValueType.Value:
+                    e.Formatting.Font.Color = Color.Gray;
+                    break;
+            }
+            e.Handled = true;
+        }
     }
 }
