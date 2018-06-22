@@ -18,10 +18,10 @@
 </script>
 @Html.DevExpress().Button(btn =>
     {
-        btn.Name = "btnExportToXLS";
-        btn.Text = "Export to XLS";
+        btn.Name = "btnExportToXLSX";
+        btn.Text = "Export to XLSX";
         btn.UseSubmitBehavior = false;
-        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLS'); }";
+        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLSX'); }";
 
     }).GetHtml()
 @Html.DevExpress().Button(btn =>

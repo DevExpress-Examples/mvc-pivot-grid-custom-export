@@ -21,7 +21,7 @@ namespace MVCxPivotGrid_CustomExport.Controllers
             return PartialView("PivotGridPartial", Models.NwindModel.GetData());
         }
 
-        public ActionResult ExportToXLS()
+        public ActionResult ExportToXLSX()
         {
             return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), PivotGridHelper.XlsxOptions);
         }
