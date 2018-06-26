@@ -1,7 +1,9 @@
 ﻿using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
 using DevExpress.XtraPivotGrid;
+using System;
 using System.Drawing;
+using System.Web;
 
 public class PivotGridHelper
 {
@@ -71,6 +73,25 @@ public class PivotGridHelper
             {
                 e.Appearance.BackColor = Color.DarkOliveGreen;
                 e.Appearance.ForeColor = Color.White;
+            }
+        };
+
+        settings.SettingsExport.CustomExportFieldValue = (sender, e) =>
+        {
+            if (e.Field != null)
+            {
+                if (e.Field.FieldName == "ProductName")
+                {
+                    e.Brick.Url = String.Format("https://www.google.com/search?q={0}", e.Text);
+                    ((DevExpress.XtraPrinting.TextBrick)e.Brick).Target = "_blank";
+                }
+                if (e.Field.FieldName == "Country" && e.Text == "USA")
+                {
+                    DevExpress.XtraPrinting.ImageBrick imBrick = new DevExpress.XtraPrinting.ImageBrick();
+                    imBrick.Image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/us.png"));
+                    imBrick.SizeMode = DevExpress.XtraPrinting.ImageSizeMode.AutoSize;
+                    e.Brick = imBrick;
+                }
             }
         };
 

@@ -1,7 +1,4 @@
-using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
-using System.Drawing;
-using System.IO;
 using System.Web.Mvc;
 
 namespace MVCxPivotGrid_CustomExport.Controllers
@@ -21,11 +18,17 @@ namespace MVCxPivotGrid_CustomExport.Controllers
             return PartialView("PivotGridPartial", Models.NwindModel.GetData());
         }
 
-        public ActionResult ExportToXLSX()
+        public ActionResult ExportToXLSX_DataAware()
         {
             return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), PivotGridHelper.XlsxOptions);
         }
 
+        public ActionResult ExportToXLSX_WYSIWYG()
+        {
+            DevExpress.XtraPrinting.XlsxExportOptionsEx options = new DevExpress.XtraPrinting.XlsxExportOptionsEx();
+            options.ExportType = DevExpress.Export.ExportType.WYSIWYG;
+            return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), options);
+        }
         public ActionResult ExportToPDF()
         {
             return PivotGridExtension.ExportToPdf(PivotGridHelper.Settings, Models.NwindModel.GetData());

@@ -18,10 +18,18 @@
 </script>
 @Html.DevExpress().Button(btn =>
     {
-        btn.Name = "btnExportToXLSX";
-        btn.Text = "Export to XLSX";
+        btn.Name = "btnExportToXLSX_DataAware";
+        btn.Text = "Export to XLSX (DataAware)";
         btn.UseSubmitBehavior = false;
-        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLSX'); }";
+        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLSX_DataAware'); }";
+
+    }).GetHtml()
+@Html.DevExpress().Button(btn =>
+    {
+        btn.Name = "btnExportToXLSX_WYSIWYG";
+        btn.Text = "Export to XLSX (WYSIWYG)";
+        btn.UseSubmitBehavior = false;
+        btn.ClientSideEvents.Click = "function() {ExportPivotGrid('ExportToXLSX_WYSIWYG'); }";
 
     }).GetHtml()
 @Html.DevExpress().Button(btn =>
