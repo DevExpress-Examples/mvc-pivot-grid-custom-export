@@ -1,3 +1,4 @@
+using DevExpress.Web.ASPxPivotGrid;
 using DevExpress.Web.Mvc;
 using System.Web.Mvc;
 
@@ -25,7 +26,8 @@ namespace MVCxPivotGrid_CustomExport.Controllers
 
         public ActionResult ExportToXLSX_WYSIWYG()
         {
-            DevExpress.XtraPrinting.XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
+            PivotXlsxExportOptions options = new PivotXlsxExportOptions();
+            options.ExportType = DevExpress.Export.ExportType.WYSIWYG;
             return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), options);
         }
 
