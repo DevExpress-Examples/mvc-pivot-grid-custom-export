@@ -26,7 +26,7 @@ public class PivotGridHelper
         {
             if (_xlsOptions == null)
             {
-                _xlsOptions = GetXlsOptions();
+                _xlsOptions = GetXlsxOptions();
             }
             return _xlsOptions;
         }
@@ -134,7 +134,7 @@ public class PivotGridHelper
         return settings;
     }
 
-    static PivotXlsxExportOptions GetXlsOptions()
+    static PivotXlsxExportOptions GetXlsxOptions()
     {
         PivotXlsxExportOptions options = new PivotXlsxExportOptions();
         options.CustomizeCell += Options_CustomizeCell;

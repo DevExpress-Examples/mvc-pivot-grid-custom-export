@@ -25,10 +25,10 @@ namespace MVCxPivotGrid_CustomExport.Controllers
 
         public ActionResult ExportToXLSX_WYSIWYG()
         {
-            DevExpress.XtraPrinting.XlsxExportOptionsEx options = new DevExpress.XtraPrinting.XlsxExportOptionsEx();
-            options.ExportType = DevExpress.Export.ExportType.WYSIWYG;
+            DevExpress.XtraPrinting.XlsxExportOptions options = new DevExpress.XtraPrinting.XlsxExportOptions();
             return PivotGridExtension.ExportToXlsx(PivotGridHelper.Settings, Models.NwindModel.GetData(), options);
         }
+
         public ActionResult ExportToPDF()
         {
             return PivotGridExtension.ExportToPdf(PivotGridHelper.Settings, Models.NwindModel.GetData());
