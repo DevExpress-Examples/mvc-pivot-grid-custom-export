@@ -12,7 +12,7 @@ This example demonstrates how to export [ASP.NET MVC Pivot Grid](https://docs.de
 
 The following image shows the [MVCXPivotGrid](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.MVCxPivotGrid) when the example is run.
 
-![](https://github.com/DevExpress-Examples/mvc-pivot-grid-custom-export/blob/18.1.3%2B/images/mvcxpivotgrid-export-original.png)
+![](./images/mvcxpivotgrid-export-original.png)
 
 Click the _Export to XLSX (DataAware)_, _Export to XLSX (WYSIWYG)_ or _Export to PDF_ button to perform export.
 
@@ -22,7 +22,7 @@ To customize the cell content and appearance individually for each cell, this ex
 
 Default [export type](https://docs.devexpress.com/CoreLibraries/DevExpress.Export.ExportType) is data-aware. The resultant file is shown below.
 
-![](https://github.com/DevExpress-Examples/mvc-pivot-grid-custom-export/blob/18.1.3%2B/images/mvcxpivotgrid-export-to-xlsx-data-aware.png)
+![](./images/mvcxpivotgrid-export-to-xlsx-data-aware.png)
 
 To set the export type to WYSIWYG, this example uses the [PivotGridExtension.ExportToXlsx](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.PivotGridExtension.ExportToXlsx(DevExpress.Web.Mvc.PivotGridSettings-System.Object-DevExpress.XtraPrinting.XlsxExportOptions)) method with the [DevExpress.XtraPrinting.XlsxExportOptionsEx](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.XlsxExportOptionsEx) parameter whose **ExportType property** is set to the **DevExpress.Export.ExportType.WYSIWYG** value. The resultant file is shown below.
 
