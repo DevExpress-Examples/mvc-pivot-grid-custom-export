@@ -38,7 +38,7 @@ public class PivotGridHelper
         settings.CallbackRouteValues = new { Controller = "Home", Action = "PivotGridPartial" };
         settings.OptionsView.HorizontalScrollBarMode = DevExpress.Web.ScrollBarMode.Visible;
         settings.Width = new System.Web.UI.WebControls.Unit(90, System.Web.UI.WebControls.UnitType.Percentage);
-
+        settings.OptionsData.DataProcessingEngine = PivotDataProcessingEngine.Optimized;
         settings.SettingsExport.OptionsPrint.PrintColumnAreaOnEveryPage = true;
         settings.SettingsExport.OptionsPrint.PrintRowAreaOnEveryPage = true;
         settings.SettingsExport.OptionsPrint.PageSettings.Landscape = true;
@@ -98,35 +98,35 @@ public class PivotGridHelper
         settings.Fields.Add(field =>
         {
             field.Area = PivotArea.RowArea;
-            field.FieldName = "CategoryName";
+            field.DataBinding = new DataSourceColumnBinding("CategoryName");
             field.Caption = "Category";
             field.AreaIndex = 0;
         });
         settings.Fields.Add(field =>
         {
             field.Area = PivotArea.ColumnArea;
-            field.FieldName = "Country";
+            field.DataBinding = new DataSourceColumnBinding("Country");
             field.Caption = "Country";
             field.AreaIndex = 0;
         });
         settings.Fields.Add(field =>
         {
             field.Area = PivotArea.DataArea;
-            field.FieldName = "Extended Price";
+            field.DataBinding = new DataSourceColumnBinding("Extended Price");
             field.Caption = "Extended_Price";
             field.AreaIndex = 0;
         });
         settings.Fields.Add(field =>
         {
             field.Area = PivotArea.RowArea;
-            field.FieldName = "ProductName";
+            field.DataBinding = new DataSourceColumnBinding("ProductName");
             field.Caption = "Product Name";
             field.AreaIndex = 1;
         });
         settings.Fields.Add(field =>
         {
             field.Area = PivotArea.ColumnArea;
-            field.FieldName = "Sales Person";
+            field.DataBinding = new DataSourceColumnBinding("Sales Person");
             field.Caption = "Sales Person";
             field.AreaIndex = 1;
         });
