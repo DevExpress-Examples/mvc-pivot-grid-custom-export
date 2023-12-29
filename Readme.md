@@ -4,9 +4,6 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 # How to Export ASP.NET MVC Pivot Grid to PDF and XLSX Formats with Custom Settings
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/138154590/)**
-<!-- run online end -->
 
 This example demonstrates how to export [ASP.NET MVC Pivot Grid](https://docs.devexpress.com/AspNet/10689/asp.net-mvc-extensions/pivot-grid) to PDF and XLSX formats, specify various export options and customize the exported cell's content and appearance.
 
