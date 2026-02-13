@@ -34,7 +34,7 @@ To customize the cell content and appearance individually for each cell, this ex
 ![](./images/mvcxpivotgrid-export-to-pdf-custom.png)
 
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=mvc-pivot-grid-custom-export&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=mvc-pivot-grid-custom-export&~~~was_helpful=no)
 
