@@ -24,14 +24,14 @@ Default [export type](https://docs.devexpress.com/CoreLibraries/DevExpress.Expor
 
 To set the export type to WYSIWYG, this example uses the [PivotGridExtension.ExportToXlsx](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.PivotGridExtension.ExportToXlsx(DevExpress.Web.Mvc.PivotGridSettings-System.Object-DevExpress.XtraPrinting.XlsxExportOptions)) method with the [DevExpress.XtraPrinting.XlsxExportOptionsEx](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.XlsxExportOptionsEx) parameter whose **ExportType property** is set to the **DevExpress.Export.ExportType.WYSIWYG** value. The resultant file is shown below.
 
-![](https://github.com/DevExpress-Examples/mvc-pivot-grid-custom-export/blob/18.1.3%2B/images/mvcxpivotgrid-export-to-xlsx-wysiwyg.png)
+![](./images/mvcxpivotgrid-export-to-xlsx-wysiwyg.png)
 
 Export to PDF is performed using the [PivotGridExtension.ExportToPdf](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.PivotGridExtension.ExportToPdf(DevExpress.Web.Mvc.PivotGridSettings-System.Object)) method with the [PivotGridSettings](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.PivotGridSettings) instance passed as the method parameter. The [PivotGridSettings.SettingsExport.OptionsPrint](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.MVCxPivotGridExportSettings.OptionsPrint) property is used to specify page settings. 
 
 To customize the cell content and appearance individually for each cell, this example handles the [PivotGridSettings.SettingsExport.CustomExportCell](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.MVCxPivotGridExportSettings.CustomExportCell) event.
 
 
-![](https://github.com/DevExpress-Examples/mvc-pivot-grid-custom-export/blob/18.1.3%2B/images/mvcxpivotgrid-export-to-pdf-custom.png)
+![](./images/mvcxpivotgrid-export-to-pdf-custom.png)
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
@@ -40,3 +40,4 @@ To customize the cell content and appearance individually for each cell, this ex
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
